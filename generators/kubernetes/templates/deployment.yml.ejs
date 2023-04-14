@@ -82,7 +82,7 @@ spec:
       containers:
       - name: <%= app.baseName.toLowerCase() %>-app
         image: <%= app.targetImageName %>
-<%_ if (this.config.logs) { _%>
+<%_ if (logManagementTypeEck) { _%>
         volumeMounts:
           - name: logs_pvc
             mountPath: /var/logs
@@ -273,7 +273,7 @@ spec:
             path: /management/health/liveness
             port: http
           initialDelaySeconds: 120
-<%_ if (this.config.logs) { _%>
+<%_ if (logManagementTypeEck) { _%>
       volumes:
       - name: logs_pv
         persistentVolumeClaim:

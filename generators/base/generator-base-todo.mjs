@@ -53,6 +53,7 @@ import {
   searchEngineTypes,
   clientFrameworkTypes,
   getConfigWithDefaults,
+  logManagementTypes,
 } from '../../jdl/jhipster/index.mjs';
 import { getJdbcUrl, getR2dbcUrl, prepareSqlApplicationProperties } from '../sql/support/index.mjs';
 import {
@@ -75,6 +76,7 @@ const { ANGULAR, REACT, VUE, NO: CLIENT_FRAMEWORK_NO } = clientFrameworkTypes;
 const GENERATOR_JHIPSTER = 'generator-jhipster';
 const { ORACLE, MYSQL, POSTGRESQL, MARIADB, MSSQL, SQL, MONGODB, COUCHBASE, NEO4J, CASSANDRA, H2_MEMORY, H2_DISK } = databaseTypes;
 const NO_DATABASE = databaseTypes.NO;
+const {ECK_LOG,NO_LOG}=logManagementTypes;
 const { PROMETHEUS, ELK } = monitoringTypes;
 const { JWT, OAUTH2, SESSION } = authenticationTypes;
 const { CAFFEINE, EHCACHE, REDIS, HAZELCAST, INFINISPAN, MEMCACHED } = cacheTypes;
@@ -1226,6 +1228,7 @@ templates: ${JSON.stringify(existingTemplates, null, 2)}`;
     dest.cacheProviderHazelcast = dest.cacheProvider === HAZELCAST;
     dest.cacheProviderInfinispan = dest.cacheProvider === INFINISPAN;
     dest.cacheProviderMemcached = dest.cacheProvider === MEMCACHED;
+    dest.logManagementTypeEck=dest.logManagementType === ECK_LOG;    //added eck option cmi-tic-lokesh
     dest.cacheProviderRedis = dest.cacheProvider === REDIS;
     dest.cacheProviderAny = dest.cacheProvider && dest.cacheProvider !== NO_CACHE;
 
