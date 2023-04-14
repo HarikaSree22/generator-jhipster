@@ -37,6 +37,10 @@ type ApplicationType = {
   applicationType: 'monolith' | 'microservice' | 'gateway';
 };
 
+/* type logManagementType ={
+//  logmanagementtypes:string;  
+ } */
+
 type MicroservicesArchitectureApplication = {
   microfrontend: boolean;
   gatewayServerPort: number;

@@ -28,6 +28,7 @@ import {
   databaseTypes,
   cacheTypes,
   serviceDiscoveryTypes,
+  logManagementTypes,
 } from '../../jdl/jhipster/index.mjs';
 import { R2DBC_DB_OPTIONS, SQL_DB_OPTIONS } from './support/database.mjs';
 
@@ -53,10 +54,13 @@ const {
   SEARCH_ENGINE,
   MESSAGE_BROKER,
   ENABLE_SWAGGER_CODEGEN,
+  LOG_MANAGEMENT,
 } = OptionNames;
 const NO_SERVICE_DISCOVERY = serviceDiscoveryTypes.NO;
 const NO_DATABASE = databaseTypes.NO;
 const NO_CACHE_PROVIDER = cacheTypes.NO;
+const { ECK,NO_LOG } = logManagementTypes;
+// const NO_LOG_MANAGEMENT = logManagementTypes.NO;
 
 /**
  * Get Option From Array
@@ -301,6 +305,22 @@ export async function askForServerSideOpts({ control }) {
       name: 'gradleEnterpriseHost',
       message: 'Enter your Gradle Enterprise host',
       validate: input => (input.length === 0 ? 'Please enter your Gradle Enterprise host' : true),
+    },
+    {
+      type: 'list',
+      name: LOG_MANAGEMENT,
+      message: 'Do you want log management?',
+      choices: [
+        {
+          value: ECK,
+          name: 'eck',
+        },
+        {
+          value: NO_LOG,
+          name: 'no',
+        },
+      ],
+      default: ECK,
     },
   ];
 
