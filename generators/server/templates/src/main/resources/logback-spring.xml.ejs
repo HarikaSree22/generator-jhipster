@@ -29,6 +29,7 @@
 
 <!-- The FILE and ASYNC appenders are here as examples for a production configuration -->
 <%_ if (logManagementTypeEck) { _%>
+    
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/var/logs/<%= baseName %>.%d{yyyy-MM-dd}.log</fileNamePattern>

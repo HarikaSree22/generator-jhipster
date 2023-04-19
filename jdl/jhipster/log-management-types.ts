@@ -23,4 +23,3 @@ const logManagementTypes = {
 };
 
 export default logManagementTypes;
-  
