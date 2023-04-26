@@ -94,6 +94,7 @@ const optionNames = {
   JHIPSTER_VERSION: 'jhipsterVersion',
   JWT_SECRET_KEY: 'jwtSecretKey',
   LANGUAGES: 'languages',
+  LOG_MANAGEMENT_TYPE: 'logManagementType',
   MESSAGE_BROKER: 'messageBroker',
   MICROFRONTEND: 'microfrontend',
   MICROFRONTENDS: 'microfrontends',
@@ -117,7 +118,6 @@ const optionNames = {
   WITH_ENTITIES: 'withEntities',
   ENABLE_GRADLE_ENTERPRISE: 'enableGradleEnterprise',
   GRADLE_ENTERPRISE_HOST: 'gradleEnterpriseHost',
-  LOG_MANAGEMENT: 'logManagement',
 };
 
 const optionValues: any = {
@@ -138,9 +138,6 @@ const optionValues: any = {
   [optionNames.BUILD_TOOL]: {
     [MAVEN]: MAVEN,
     [GRADLE]: GRADLE,
-  },[optionNames.LOG_MANAGEMENT]: {
-        [ECK]:ECK,
-        [NO_LOG]:NO_LOG,
   },
   [optionNames.CACHE_PROVIDER]: {
     [CAFFEINE]: CAFFEINE,
@@ -189,6 +186,10 @@ const optionValues: any = {
   [optionNames.JHIPSTER_VERSION]: '',
   [optionNames.JWT_SECRET_KEY]: '',
   [optionNames.LANGUAGES]: [],
+  [optionNames.LOG_MANAGEMENT_TYPE]: {
+    [ECK]: ECK,
+    [NO_LOG]: NO_LOG,
+  },
   [optionNames.MESSAGE_BROKER]: {
     kafka: KAFKA,
     rabbit: RABBITMQ, // cmi-tic-varun
@@ -271,6 +272,7 @@ const optionTypes = {
   [optionNames.JHIPSTER_VERSION]: { type: ApplicationOptionTypes.STRING },
   [optionNames.JWT_SECRET_KEY]: { type: ApplicationOptionTypes.STRING },
   [optionNames.LANGUAGES]: { type: ApplicationOptionTypes.LIST },
+  [optionNames.LOG_MANAGEMENT_TYPE]: { type: ApplicationOptionTypes.LIST },
   [optionNames.MESSAGE_BROKER]: { type: ApplicationOptionTypes.STRING },
   [optionNames.MICROFRONTEND]: { type: ApplicationOptionTypes.BOOLEAN },
   [optionNames.MICROFRONTENDS]: { type: ApplicationOptionTypes.LIST },

@@ -76,7 +76,7 @@ const { ANGULAR, REACT, VUE, NO: CLIENT_FRAMEWORK_NO } = clientFrameworkTypes;
 const GENERATOR_JHIPSTER = 'generator-jhipster';
 const { ORACLE, MYSQL, POSTGRESQL, MARIADB, MSSQL, SQL, MONGODB, COUCHBASE, NEO4J, CASSANDRA, H2_MEMORY, H2_DISK } = databaseTypes;
 const NO_DATABASE = databaseTypes.NO;
-const {ECK_LOG,NO_LOG}=logManagementTypes;
+const ECK_LOG = logManagementTypes.ECK;
 const { PROMETHEUS, ELK } = monitoringTypes;
 const { JWT, OAUTH2, SESSION } = authenticationTypes;
 const { CAFFEINE, EHCACHE, REDIS, HAZELCAST, INFINISPAN, MEMCACHED } = cacheTypes;
@@ -1171,6 +1171,8 @@ templates: ${JSON.stringify(existingTemplates, null, 2)}`;
         dest.gradleEnterpriseHost = `https://${config.gradleEnterpriseHost}`;
       }
     }
+
+    dest.logManagementType = config.logManagementType;
   }
 
   loadServerAndPlatformConfig(dest = this) {
@@ -1228,7 +1230,6 @@ templates: ${JSON.stringify(existingTemplates, null, 2)}`;
     dest.cacheProviderHazelcast = dest.cacheProvider === HAZELCAST;
     dest.cacheProviderInfinispan = dest.cacheProvider === INFINISPAN;
     dest.cacheProviderMemcached = dest.cacheProvider === MEMCACHED;
-    dest.logManagementTypeEck=dest.logManagementType === ECK_LOG;    //added eck option cmi-tic-lokesh
     dest.cacheProviderRedis = dest.cacheProvider === REDIS;
     dest.cacheProviderAny = dest.cacheProvider && dest.cacheProvider !== NO_CACHE;
 
@@ -1277,6 +1278,8 @@ templates: ${JSON.stringify(existingTemplates, null, 2)}`;
 
     dest.authenticationUsesCsrf = [OAUTH2, SESSION].includes(dest.authenticationType);
     dest.generateAuthenticationApi = dest.applicationTypeMonolith || dest.applicationTypeGateway;
+
+    dest.logManagementTypeEck = dest.logManagementType === ECK_LOG;    //added eck option cmi-tic-lokesh
 
     if (dest.databaseTypeSql) {
       prepareSqlApplicationProperties(dest);

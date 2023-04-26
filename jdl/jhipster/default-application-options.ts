@@ -25,6 +25,7 @@ import cacheTypes from './cache-types.js';
 import serviceDiscoveryTypes from './service-discovery-types.js';
 import clientFrameworkTypes from './client-framework-types.js';
 import buildToolTypes from './build-tool-types.js';
+import logManagementTypes from './log-management-types.js';
 
 const { MONOLITH, MICROSERVICE, GATEWAY } = applicationTypes;
 const { CONSUL } = serviceDiscoveryTypes;
@@ -39,6 +40,7 @@ const NO_CACHE_PROVIDER = cacheTypes.NO;
 const NO_SERVICE_DISCOVERY = serviceDiscoveryTypes.NO;
 
 const { MAVEN } = buildToolTypes;
+const { NO_LOG } = logManagementTypes;
 
 const {
   APPLICATION_TYPE,
@@ -60,6 +62,7 @@ const {
   ENTITY_SUFFIX,
   JHI_PREFIX,
   LANGUAGES,
+  LOG_MANAGEMENT_TYPE,
   MESSAGE_BROKER,
   NATIVE_LANGUAGE,
   PACKAGE_FOLDER,
@@ -89,6 +92,7 @@ const commonDefaultOptions = {
   [ENABLE_TRANSLATION]: OptionValues[ENABLE_TRANSLATION],
   [ENTITY_SUFFIX]: OptionValues[ENTITY_SUFFIX],
   [JHI_PREFIX]: OptionValues[JHI_PREFIX],
+  [LOG_MANAGEMENT_TYPE]: NO_LOG,
   [MESSAGE_BROKER]: OptionValues[MESSAGE_BROKER].no,
   [SEARCH_ENGINE]: OptionValues[SEARCH_ENGINE].no,
   [WEBSOCKET]: OptionValues[WEBSOCKET].no,

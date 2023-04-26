@@ -54,12 +54,12 @@ const {
   SEARCH_ENGINE,
   MESSAGE_BROKER,
   ENABLE_SWAGGER_CODEGEN,
-  LOG_MANAGEMENT,
+  LOG_MANAGEMENT_TYPE,
 } = OptionNames;
 const NO_SERVICE_DISCOVERY = serviceDiscoveryTypes.NO;
 const NO_DATABASE = databaseTypes.NO;
 const NO_CACHE_PROVIDER = cacheTypes.NO;
-const { ECK,NO_LOG } = logManagementTypes;
+const { ECK, NO_LOG } = logManagementTypes;
 // const NO_LOG_MANAGEMENT = logManagementTypes.NO;
 
 /**
@@ -308,16 +308,16 @@ export async function askForServerSideOpts({ control }) {
     },
     {
       type: 'list',
-      name: LOG_MANAGEMENT,
-      message: 'Do you want log management?',
+      name: LOG_MANAGEMENT_TYPE,
+      message: 'Which log manager would you like to use?',
       choices: [
         {
           value: ECK,
-          name: 'eck',
+          name: 'Elastic Cloud on Kubernetes',
         },
         {
           value: NO_LOG,
-          name: 'no',
+          name: 'No',
         },
       ],
       default: ECK,
