@@ -22,6 +22,7 @@ import {
   applicationTypes,
   authenticationTypes,
   databaseTypes,
+  logManagementTypes,
   monitoringTypes,
   searchEngineTypes,
   serviceDiscoveryTypes,
@@ -47,6 +48,8 @@ export function writeFiles() {
         const appName = this.appConfigs[i].baseName.toLowerCase();
         const appOut = appName.concat('-', suffix);
         this.app = this.appConfigs[i];
+        if(app.logManagementTypes) // added filebeat.yml by lokesh-tic
+          this.writeFile('filebeat.yml.ejs', 'filebeat.yml')
         this.writeFile('deployment.yml.ejs', `${appOut}/${appName}-deployment.yml`);
         this.writeFile('service.yml.ejs', `${appOut}/${appName}-service.yml`);
         // If we choose microservice with no DB, it is trying to move _no.yml as prodDatabaseType is getting tagged as 'string' type
