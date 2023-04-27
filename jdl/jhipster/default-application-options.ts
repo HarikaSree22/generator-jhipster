@@ -93,6 +93,7 @@ const commonDefaultOptions = {
   [MESSAGE_BROKER]: OptionValues[MESSAGE_BROKER].no,
   [SEARCH_ENGINE]: OptionValues[SEARCH_ENGINE].no,
   [WEBSOCKET]: OptionValues[WEBSOCKET].no,
+  [WITH_EXAMPLE]:OptionValues[WITH_EXAMPLE]
 };
 
 export function getConfigWithDefaults(customOptions: string | Record<string, any> = {}) {
@@ -208,7 +209,6 @@ export function getServerConfigForMonolithApplication(customOptions: any = {}): 
     [SERVER_PORT]: OptionValues[SERVER_PORT],
     [SERVICE_DISCOVERY_TYPE]: NO_SERVICE_DISCOVERY,
     [WITH_ADMIN_UI]: true,
-    [WITH_EXAMPLE]:false, // setting value for withExample for monolithic application @cmi-tic-harika
     ...customOptions,
   };
   return {
@@ -238,7 +238,7 @@ export function getServerConfigForGatewayApplication(customOptions: any = {}): a
     ...customOptions,
   };
   if(options[DEV_DATABASE_TYPE] === POSTGRESQL && options[CLIENT_FRAMEWORK] === REACT){
-    options[WITH_EXAMPLE] = true; // setting value for withExample for monolithic aplication @cmi-tic-harika
+    options[WITH_EXAMPLE] = false; // setting value for withExample for gateway aplication @cmi-tic-harika
   }
   options[CACHE_PROVIDER] = NO_CACHE_PROVIDER;
   options[ENABLE_HIBERNATE_CACHE] = false;
@@ -276,7 +276,6 @@ export function getServerConfigForMicroserviceApplication(customOptions: any = {
   }
   options[WITH_ADMIN_UI] = false;
   if(options[DEV_DATABASE_TYPE] === POSTGRESQL){
-  options[WITH_EXAMPLE] = true; // setting value for withExample for microservice application @cmi-tic-harika
 }
 return {
     ...options,

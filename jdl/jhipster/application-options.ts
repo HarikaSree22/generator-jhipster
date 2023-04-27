@@ -232,7 +232,7 @@ const optionValues: any = {
   },
   [optionNames.WITH_ENTITIES]: false,
   [optionNames.WITH_ADMIN_UI]: true,
-  [optionNames.WITH_EXAMPLE]: true, // setting default value for withExample @cmi-tic-harika
+  [optionNames.WITH_EXAMPLE]: false, // setting default value for withExample @cmi-tic-harika
   [optionNames.ENABLE_GRADLE_ENTERPRISE]: false,
   [optionNames.GRADLE_ENTERPRISE_HOST]: '',
 };
