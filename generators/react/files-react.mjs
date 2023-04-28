@@ -64,7 +64,7 @@ export const files = {
     },
     //adding FE files for usecase @cmi-tic-harika
     {
-      condition: generator => (generator.clientFrameworkReact && (generator.applicationTypeGateway && generator.withExample)) || (generator.applicationTypeMicroservice),
+      condition: generator => (generator.clientFrameworkReact && (generator.applicationTypeGateway && generator.withExample)),
       ...clientApplicationBlock,
       templates: [
         'entities/reminder/index.tsx',

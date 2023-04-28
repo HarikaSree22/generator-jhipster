@@ -104,12 +104,45 @@ export const Home = () => {
             <div>
               <%_ if(withExample) { _%>
                 <h1 style={{ textAlign: 'center', padding: 50, color: '#012C78' }}>Welcome to <%= capitalizedBaseName %> home page</h1> 
-                <h5 style={{ marginLeft: 20, color: '#012C78' }}>
-                  Click here to <span></span>
-                  <a href={getLoginUrl()} style={{ color: '#012C78' }}>
-                    sign in
-                  </a>
-                </h5>
+                <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginLeft: 150,
+              marginRight: 150,
+              marginTop: 0,
+              marginBottom: 50,
+              color: '#012C78',
+            }}
+          >
+            <div>
+              <img src="content/images/TIC.png" style={{ width: '650px', height: '650px' }}></img>
+            </div>
+            <div style={{marginTop:100}}>
+              <h5>
+                Click here to <span></span>
+                <a href={getLoginUrl()} style={{ color: '#012C78' }}>
+                  sign in
+                </a>
+              </h5>
+              <br />
+              <h5>This is an application using our WDA</h5>
+              <h5>
+                Our products can be found here... &nbsp;
+                <a href="http://wda-ui.s3-website.ap-south-1.amazonaws.com/" target="_blank" style={{ color: '#012C78' }}>
+                  TIC_HomePage
+                </a>
+              </h5>
+              <br />
+              <h5>
+                For more detailed information regarding our project you can refer our &nbsp;
+                <a href=" https://comakeit-tic.github.io/" target="_blank" style={{ color: '#012C78' }}>
+                  Documentation
+                </a>
+              </h5>
+            </div>
+          </div>
               <%_ } else { _%>
               <Alert color="warning">
                 <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
